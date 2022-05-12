@@ -1,8 +1,14 @@
 import './App.css';
+import { Nav, Footer } from "./components"
+import { Routes } from "./routes"
 
 function App() {
   return (
-    <h1>Hello there!</h1>
+    <>
+      <Nav />
+      <Routes />
+      <Footer />
+    </>
   );
 }
 

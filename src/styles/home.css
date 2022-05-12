@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.center-hv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-head {
+  font-size: xx-large;
+}
+
+.main-desc {
+  width: 30rem;
+  text-align: center;
+  font-size: large;
+}
+
+.btn {
+  background: none;
+  margin: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.5rem;
+  font-weight: bolder;
+  border: none;
+}
+
+.btn-primary {
+  background-color: blue;
+  color: white;
+}
+
+.btn-secondary {
+  color: blue;
+  border: 1px solid blue;
+}
+
+.btn-lg {
+  display: block;
+}
+
+@media screen and (max-width: 750px) {
+  .main-desc {
+    width: 15rem;
+  }
+}
