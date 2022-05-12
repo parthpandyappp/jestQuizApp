@@ -51,9 +51,7 @@ function Themes() {
           </div>
 
           <div class="btn-block">
-            <button class="btn btn-primary">
-              <a href="#"> Start the quiz?</a>
-            </button>
+            <button class="btn btn-primary">Start the quiz?</button>
             <button class="btn result-incorrect" id="closeModal">
               Go Back
             </button>

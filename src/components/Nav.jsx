@@ -11,9 +11,7 @@ function Nav() {
       <div class="nav-opts">
         <p class="underline">Terms</p>
         <p class="underline">About Us</p>
-        <a href="#">
-          <p class="underline">Your results</p>
-        </a>
+        <p class="underline">Your results</p>
       </div>
     </nav>
   );
