@@ -4,14 +4,14 @@ function Nav() {
   return (
     <nav>
       <h1>
-        <Link to="/" class="underline-wavy">
+        <Link to="/" className="underline-wavy">
           jestQuiz
         </Link>
       </h1>
-      <div class="nav-opts">
-        <p class="underline">Terms</p>
-        <p class="underline">About Us</p>
-        <p class="underline">Your results</p>
+      <div className="nav-opts">
+        <p className="underline">Terms</p>
+        <p className="underline">About Us</p>
+        <p className="underline">Your results</p>
       </div>
     </nav>
   );
