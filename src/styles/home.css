@@ -33,13 +33,13 @@
 }
 
 .btn-primary {
-  background-color: blue;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .btn-secondary {
-  color: blue;
-  border: 1px solid blue;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .btn-lg {

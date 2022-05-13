@@ -4,11 +4,14 @@
 @import url("./styles/home.css");
 @import url("styles/themes.css");
 @import url("styles/footer.css");
+@import url("styles/quest.css");
 
 * {
   font-family: "Montserrat", sans-serif;
   --color-fgmodal: #111827;
   --color-bgmodal: #e2e8f0;
+  --primary-color: #1d4ed8;
+  --slate-white: #f8fafc;
 }
 
 body {
@@ -28,14 +31,27 @@ nav {
 }
 
 .underline {
-  text-decoration: underline blue;
+  text-decoration: underline var(--primary-color);
 }
 
 .underline-wavy {
-  text-decoration: wavy underline blue;
+  text-decoration: wavy underline var(--primary-color);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.categories {
+  display: flex;
+  gap: 1rem;
+}
+
+.category-badge {
+  background-color: var(--primary-color);
+  color: var(--slate-white);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
 }
