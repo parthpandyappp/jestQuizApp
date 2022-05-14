@@ -7,7 +7,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  const { currentUser, userSignup } = useAuth();
+  const { userSignup } = useAuth();
 
   return (
     <div className="center-hv">
