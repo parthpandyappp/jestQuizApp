@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts";
 
 function Home() {
+  const { currentUser } = useAuth();
+
   return (
     <div className="container">
       <div className="center-hv">
@@ -11,7 +14,11 @@ function Home() {
         </p>
         <div className="main-opt">
           <button className="btn btn-primary">
-            <Link to="/themes">Explore Quizzes</Link>
+            {currentUser ? (
+              <Link to="/themes">Explore Quizzes</Link>
+            ) : (
+              <Link to="/login">Explore Quizzes</Link>
+            )}
           </button>
           <button className="btn btn-secondary">
             <a href="https://github.com/parthpandyappp/jestQuiz/">GitHub</a>

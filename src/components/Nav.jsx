@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts";
 
 function Nav() {
+  const { currentUser, userLogOut } = useAuth();
+
+  console.log("Current: ", currentUser);
+
   return (
     <nav>
       <h1>
@@ -9,9 +14,20 @@ function Nav() {
         </Link>
       </h1>
       <div className="nav-opts">
-        <p className="underline">Terms</p>
+        {currentUser ? (
+          <>
+            <p>Hello {currentUser.displayName}👋</p>
+            <p className="underline" onClick={userLogOut}>
+              Logout
+            </p>
+            <p className="underline">Your results</p>
+          </>
+        ) : (
+          <Link to="/login">
+            <p className="underline">Login</p>
+          </Link>
+        )}
         <p className="underline">About Us</p>
-        <p className="underline">Your results</p>
       </div>
     </nav>
   );

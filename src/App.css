@@ -5,6 +5,7 @@
 @import url("styles/themes.css");
 @import url("styles/footer.css");
 @import url("styles/quest.css");
+@import url("styles/login.css");
 
 * {
   font-family: "Montserrat", sans-serif;
@@ -27,7 +28,7 @@ nav .nav-opts {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .underline {
