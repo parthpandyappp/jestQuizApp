@@ -49,6 +49,10 @@ a {
   gap: 1rem;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .category-badge {
   background-color: var(--primary-color);
   color: var(--slate-white);

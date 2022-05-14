@@ -17,7 +17,7 @@ function Nav() {
         {currentUser ? (
           <>
             <p>Hello {currentUser.displayName}👋</p>
-            <p className="underline" onClick={userLogOut}>
+            <p className="underline pointer" onClick={userLogOut}>
               Logout
             </p>
             <p className="underline">Your results</p>
