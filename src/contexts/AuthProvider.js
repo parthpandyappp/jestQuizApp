@@ -28,7 +28,7 @@ function AuthProvider({ children }) {
   const userLogOut = async () => {
 
     try {
-      const res = await signOut(auth)
+      await signOut(auth)
       setCurrentUser(null)
       navigate("/")
     } catch (err) {
@@ -58,11 +58,11 @@ function AuthProvider({ children }) {
     }
   };
 
-  const doesExist = async (currentUser) => {
+  const doesExist = async (email) => {
     try {
       const querySnapshot = await getUserDataFromFireStore();
       const data = querySnapshot ? querySnapshot.docs.map((snap) => snap.data()) : undefined;
-      return data ? data.find((user) => user.email === userData.email) : false;
+      return data ? data.find((user) => user.email === email) : false;
     } catch (error) {
       console.log(error);
     }
