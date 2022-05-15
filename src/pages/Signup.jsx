@@ -15,10 +15,10 @@ function Signup() {
         <form onSubmit={(e) => userSignup(e, email, pass, name)}>
           <h2>Sign up</h2>
           <div className="inp-unit">
-            <label for="email">Name</label>
+            <label for="fname">Name</label>
             <input
               type="text"
-              name="email"
+              name="fname"
               placeholder="johnsangram"
               onChange={(e) => setName(e.target.value)}
             />
@@ -33,7 +33,7 @@ function Signup() {
             />
           </div>
           <div className="inp-unit">
-            <label for="email">Password</label>
+            <label for="password">Password</label>
             <input
               type="password"
               name="email"
