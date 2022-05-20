@@ -131,11 +131,11 @@ const quizData = [
     },
     {
         id: "w3903577-767d-404b-y777-b869f213e4dd",
-        title: "Money Hiest Quiz",
+        title: "Money Heist Quiz",
         category: "Difficult",
         assets: { imgUrl: "https://i.ibb.co/kmd4m05/moneyheist.jpg", alt: "money-professor" },
         content:
-            "Attempting the quiz is the way to meet Proffessor in his next hiest.",
+            "Attempting the quiz is the way to meet Proffessor in his next heist.",
         questions: [
             {
                 id: 1,
@@ -151,7 +151,7 @@ const quizData = [
             {
                 id: 2,
                 question: "Inspector Raquel’s mother suffers from what medical condition?",
-                answer: "Highest budget film",
+                answer: "Alzheimer’s Disease",
                 options: [
                     "Alzheimer’s Disease",
                     "Paranoid Schizophrenia",
@@ -162,7 +162,7 @@ const quizData = [
             {
                 id: 3,
                 question: "How much currency does the gang print at the Royal Mint?",
-                answer: "SS Rajamouli",
+                answer: "984 million euros",
                 options: [
                     "879 million euros",
                     "926 million euros",
@@ -173,7 +173,7 @@ const quizData = [
             {
                 id: 4,
                 question: "The Professor’s first name is eventually revealed. What is it?",
-                answer: "Gala",
+                answer: "Sergio",
                 options: [
                     "Andrés",
                     "Aníbal",
@@ -184,7 +184,7 @@ const quizData = [
             {
                 id: 5,
                 question: " In which country does Raquel track the Professor after the first heist?",
-                answer: "Shamsher",
+                answer: "Phillipines",
                 options: [
                     "Phillipines",
                     "Thailand",

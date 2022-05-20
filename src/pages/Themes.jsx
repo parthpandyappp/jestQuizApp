@@ -1,18 +1,27 @@
-import { QuizCard } from "../components/QuizCard";
+import { useState } from "react";
 import { quizData, categories } from "../models";
+import { QuizCard } from "../components/QuizCard";
+import { filterByCategory } from "../helper-functions";
 
 function Themes() {
+  const [category, setCategory] = useState();
+  const data = filterByCategory(quizData, category);
+
   return (
     <div className="center-hv">
       <div className="categories">
         {categories.map((category) => (
-          <p className="category-badge" key={category.id}>
+          <p
+            className="category-badge"
+            key={category.id}
+            onClick={() => setCategory(category.category)}
+          >
             {category.category}
           </p>
         ))}
       </div>
       <div className="theme-container">
-        {quizData.map((quiz) => (
+        {data.map((quiz) => (
           <QuizCard key={quiz.id} data={quiz} />
         ))}
       </div>
