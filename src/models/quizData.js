@@ -2,10 +2,10 @@ const quizData = [
     {
         id: "dd4f7738-f811-4bd1-bb2b-f6913f28c92a",
         title: "The Albus Dumbledore quiz",
-        category: "easy",
+        category: "Easy",
         assets: { imgUrl: "https://i.ibb.co/dD1qyz8/dumbledore.jpg", alt: "dumbledore" },
         content:
-            "Wingardium Leviousa your way to the quiz that tests your knowledge on the wizarding world!",
+            "Attempting the quiz is the way to meet Grogu and the Mandalorian.",
         questions: [
             {
                 id: 1,
@@ -67,10 +67,10 @@ const quizData = [
     {
         id: "e6013566-767d-404b-b099-b869f213e4cc",
         title: "The Bahubali Quiz",
-        category: "easy",
+        category: "Medium",
         assets: { imgUrl: "https://i.ibb.co/3m7W8nd/bahubali.jpg", alt: "warrior" },
         content:
-            "Attempting the quiz is the way to meet Grogu and the Mandalorian.",
+            "Attempting the quiz is the way to meet all people of Mahishmati Samrajya",
         questions: [
             {
                 id: 1,
@@ -125,6 +125,71 @@ const quizData = [
                     "Sikander",
                     "Tsurugi",
                     "Sajido",
+                ],
+            },
+        ],
+    },
+    {
+        id: "w3903577-767d-404b-y777-b869f213e4dd",
+        title: "Money Hiest Quiz",
+        category: "Difficult",
+        assets: { imgUrl: "https://i.ibb.co/kmd4m05/moneyheist.jpg", alt: "money-professor" },
+        content:
+            "Attempting the quiz is the way to meet Proffessor in his next hiest.",
+        questions: [
+            {
+                id: 1,
+                question: "How many people did The Professor recruit to carry out the plan to occupy the Royal Mint of Spain?",
+                answer: "8",
+                options: [
+                    "8",
+                    "12",
+                    "7",
+                    "3",
+                ],
+            },
+            {
+                id: 2,
+                question: "Inspector Raquel’s mother suffers from what medical condition?",
+                answer: "Highest budget film",
+                options: [
+                    "Alzheimer’s Disease",
+                    "Paranoid Schizophrenia",
+                    "Post-Traumatic Stress Disorder",
+                    "Cancer",
+                ],
+            },
+            {
+                id: 3,
+                question: "How much currency does the gang print at the Royal Mint?",
+                answer: "SS Rajamouli",
+                options: [
+                    "879 million euros",
+                    "926 million euros",
+                    "777 million euros",
+                    "984 million euros",
+                ],
+            },
+            {
+                id: 4,
+                question: "The Professor’s first name is eventually revealed. What is it?",
+                answer: "Gala",
+                options: [
+                    "Andrés",
+                    "Aníbal",
+                    "Sergio",
+                    "Racquel",
+                ],
+            },
+            {
+                id: 5,
+                question: " In which country does Raquel track the Professor after the first heist?",
+                answer: "Shamsher",
+                options: [
+                    "Phillipines",
+                    "Thailand",
+                    "Malaysia",
+                    "China",
                 ],
             },
         ],
