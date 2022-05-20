@@ -25,7 +25,7 @@ function LatestResult() {
           <table>
             <tr>
               <th>Sr.no</th>
-              <th>Quiz itle</th>
+              <th>Quiz title</th>
               <th>Score</th>
             </tr>
             {scoreData.map((data, index) => {
