@@ -28,7 +28,7 @@ function Home() {
             <Link to={currentUser ? "/themes" : "/login"}>Explore Quizzes</Link>
           </button>
           <button className="btn btn-secondary">
-            <a href="https://github.com/parthpandyappp/jestQuiz/">GitHub</a>
+            <a href="https://github.com/parthpandyappp/jestQuizApp/">GitHub</a>
           </button>
         </div>
       </div>
