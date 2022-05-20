@@ -14,6 +14,7 @@ function LatestResult() {
       const quizData = docSnap.data();
       setScoreData(quizData.score);
     })();
+    // eslint-disable-next-line
   }, []);
 
   return (
