@@ -46,7 +46,7 @@ function Quest() {
       }
     });
 
-    if (flag == false) {
+    if (flag === false) {
       dispatch({ type: "SET_SCORE", payload: state.score - 2 });
     }
   };
@@ -59,6 +59,13 @@ function Quest() {
 
   useEffect(() => {
     dispatch({ type: "SET_QUEST", payload: questions });
+
+    if (index === 0) {
+      dispatch({ type: "SET_OPTION", payload: "" });
+      dispatch({ type: "SET_RESULT", payload: [] });
+      dispatch({ type: "SET_SCORE", payload: 0 });
+    }
+    // eslint-disable-next-line
   }, []);
 
   return (

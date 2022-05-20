@@ -12,6 +12,7 @@ function Home() {
     dispatch({ type: "SET_RESULT", payload: [] });
     dispatch({ type: "SET_QUEST_TITLE", payload: "" });
     dispatch({ type: "SET_SCORE", payload: 0 });
+    // eslint-disable-next-line
   }, []);
 
   return (

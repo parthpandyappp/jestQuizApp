@@ -16,9 +16,7 @@ function Nav() {
         {currentUser ? (
           <>
             <p>Hello {currentUser.displayName}👋</p>
-            <Link to="/result">
-              <p className="underline">Latest scores</p>
-            </Link>
+            <p className="underline">Latest scores</p>
             <p
               className="underline pointer"
               onClick={() => userLogOut(navigate, setCurrentUser)}

@@ -29,16 +29,14 @@ function Result() {
         });
       }
 
-      if (flag == false) {
+      if (flag === false) {
         await updateDoc(docRef, {
           score:
             quizData.score.length > 0
               ? quizData.score.map((item) => {
-                  if (quest_title === item.quest_name) {
-                    return { ...item, score: latestScore };
-                  } else {
-                    return item;
-                  }
+                  return quest_title === item.quest_name
+                    ? { ...item, score: latestScore }
+                    : item;
                 })
               : arrayUnion({ quest_name: quest_title, score: latestScore }),
         });
@@ -48,6 +46,7 @@ function Result() {
         });
       }
     })();
+    // eslint-disable-next-line
   }, [latestScore]);
 
   return (
