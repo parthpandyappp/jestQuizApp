@@ -52,7 +52,7 @@ function Result() {
   return (
     <div className="center-hv">
       <h2 className="underline underline-wavy">{quest_title}</h2>
-      <h3>Final Score: {latestScore} / 25</h3>
+      <h3>Final Score: {latestScore} / 50</h3>
       {state.question_set.map((question, index) => (
         <ResultCard key={index} question_set={question} currentIndex={index} />
       ))}

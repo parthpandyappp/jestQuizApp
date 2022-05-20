@@ -41,13 +41,13 @@ function Quest() {
 
     questions.forEach((quest) => {
       if (option === quest.answer) {
-        dispatch({ type: "SET_SCORE", payload: state.score + 5 });
+        dispatch({ type: "SET_SCORE", payload: state.score + 10 });
         flag = true;
       }
     });
 
     if (flag === false) {
-      dispatch({ type: "SET_SCORE", payload: state.score - 2 });
+      dispatch({ type: "SET_SCORE", payload: state.score - 5 });
     }
   };
 

@@ -10,6 +10,10 @@ function Rules() {
         <h4>You must abide by some rules prescribed below</h4>
 
         <ul className="rules">
+          <li className="rule">
+            10 points will be credited on every correct answer and 5 points will
+            be deducted upon each incorrect answer.
+          </li>
           <li>You can quit the quiz in the middle of quest.</li>
           <li className="rule">
             The score will only submitted on succesful completion of quest.
