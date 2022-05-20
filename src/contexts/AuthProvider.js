@@ -1,8 +1,9 @@
-import { auth, db } from "../backend";
+import { db } from "../backend";
 import { useNavigate } from "react-router-dom";
-import { collection, doc, setDoc, getDocs, getDoc, serverTimestamp, } from "firebase/firestore";
-import { createUserWithEmailAndPassword, updateProfile, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { createContext, useContext, useState, useEffect } from "react";
+import { collection, doc, setDoc, serverTimestamp, } from "firebase/firestore";
+import { getUser, doesExist, getUserDataFromFireStore, userLogOut, userLogin, userSignup } from "../helper-functions"
+
 
 const AuthContext = createContext(null);
 
@@ -11,74 +12,74 @@ function AuthProvider({ children }) {
   const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
-  const userSignup = async (e, email, pass, name) => {
-    try {
-      e.preventDefault();
-      const res = await createUserWithEmailAndPassword(auth, email, pass, name);
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      });
-      setUserData(res.user)
-      navigate("/themes")
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const userSignup = async (e, email, pass, name) => {
+  //   try {
+  //     e.preventDefault();
+  //     const res = await createUserWithEmailAndPassword(auth, email, pass, name);
+  //     updateProfile(auth.currentUser, {
+  //       displayName: name,
+  //     });
+  //     setUserData(res.user)
+  //     navigate("/themes")
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  const userLogOut = async () => {
+  // const userLogOut = async () => {
 
-    try {
-      await signOut(auth)
-      setCurrentUser(null)
-      navigate("/")
-    } catch (err) {
-      console.log(err)
-    }
+  //   try {
+  //     await signOut(auth)
+  //     setCurrentUser(null)
+  //     navigate("/")
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
 
-  }
+  // }
 
-  const userLogin = async (e, email, password) => {
-    try {
-      e.preventDefault();
-      const res = await signInWithEmailAndPassword(auth, email, password)
-      getUser(res.user.uid, setCurrentUser);
-      navigate("/themes")
-    } catch (error) {
-      console.log(error)
-    }
+  // const userLogin = async (e, email, password) => {
+  //   try {
+  //     e.preventDefault();
+  //     const res = await signInWithEmailAndPassword(auth, email, password)
+  //     getUser(res.user.uid, setCurrentUser);
+  //     navigate("/themes")
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
 
-  }
+  // }
 
-  const getUserDataFromFireStore = async () => {
-    try {
-      const res = await getDocs(collection(db, "users"));
-      return res
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getUserDataFromFireStore = async () => {
+  //   try {
+  //     const res = await getDocs(collection(db, "users"));
+  //     return res
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const doesExist = async (email) => {
-    try {
-      const querySnapshot = await getUserDataFromFireStore();
-      const data = querySnapshot ? querySnapshot.docs.map((snap) => snap.data()) : undefined;
-      return data ? data.find((user) => user.email === email) : false;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const doesExist = async (email) => {
+  //   try {
+  //     const querySnapshot = await getUserDataFromFireStore();
+  //     const data = querySnapshot ? querySnapshot.docs.map((snap) => snap.data()) : undefined;
+  //     return data ? data.find((user) => user.email === email) : false;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const getUser = async (uid, setCurrentUser) => {
-    try {
-      const docRef = doc(db, "users", uid);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setCurrentUser(docSnap.data());
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getUser = async (uid, setCurrentUser) => {
+  //   try {
+  //     const docRef = doc(db, "users", uid);
+  //     const docSnap = await getDoc(docRef);
+  //     if (docSnap.exists()) {
+  //       setCurrentUser(docSnap.data());
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     (async () => {
@@ -113,7 +114,7 @@ function AuthProvider({ children }) {
   }, [userData]);
 
   return (
-    <AuthContext.Provider value={{ currentUser, userSignup, userLogOut, userLogin }}>
+    <AuthContext.Provider value={{ currentUser, userSignup, userLogOut, userLogin, setCurrentUser, setUserData }}>
       {children}
     </AuthContext.Provider>
   );

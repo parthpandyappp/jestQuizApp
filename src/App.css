@@ -6,6 +6,7 @@
 @import url("styles/footer.css");
 @import url("styles/quest.css");
 @import url("styles/login.css");
+@import url("styles/results.css");
 
 * {
   font-family: "Montserrat", sans-serif;

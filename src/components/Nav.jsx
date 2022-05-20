@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
 
 function Nav() {
-  const { currentUser, userLogOut } = useAuth();
-
-  console.log("Current: ", currentUser);
+  const { currentUser, userLogOut, setCurrentUser } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <nav>
@@ -17,17 +16,21 @@ function Nav() {
         {currentUser ? (
           <>
             <p>Hello {currentUser.displayName}👋</p>
-            <p className="underline pointer" onClick={userLogOut}>
+            <Link to="/result">
+              <p className="underline">Latest scores</p>
+            </Link>
+            <p
+              className="underline pointer"
+              onClick={() => userLogOut(navigate, setCurrentUser)}
+            >
               Logout
             </p>
-            <p className="underline">Your results</p>
           </>
         ) : (
           <Link to="/login">
             <p className="underline">Login</p>
           </Link>
         )}
-        <p className="underline">About Us</p>
       </div>
     </nav>
   );

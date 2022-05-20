@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../contexts";
+import { useAuth, useQuestData } from "../contexts";
 
 function Home() {
   const { currentUser } = useAuth();
+  const { dispatch } = useQuestData();
+
+  useEffect(() => {
+    dispatch({ type: "SET_OPTION", payload: "" });
+    dispatch({ type: "SET_QUEST", payload: {} });
+    dispatch({ type: "SET_RESULT", payload: [] });
+    dispatch({ type: "SET_QUEST_TITLE", payload: "" });
+    dispatch({ type: "SET_SCORE", payload: 0 });
+  }, []);
 
   return (
     <div className="container">
@@ -14,11 +24,7 @@ function Home() {
         </p>
         <div className="main-opt">
           <button className="btn btn-primary">
-            {currentUser ? (
-              <Link to="/themes">Explore Quizzes</Link>
-            ) : (
-              <Link to="/login">Explore Quizzes</Link>
-            )}
+            <Link to={currentUser ? "/themes" : "/login"}>Explore Quizzes</Link>
           </button>
           <button className="btn btn-secondary">
             <a href="https://github.com/parthpandyappp/jestQuiz/">GitHub</a>

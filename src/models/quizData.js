@@ -54,7 +54,7 @@ const quizData = [
             {
                 id: 5,
                 question: "Which sport is Dumbledore keen on playing?",
-                answer: "Mould-on-the-Wold",
+                answer: "Darts",
                 options: [
                     "Archery",
                     "Darts",

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Home, Themes, Quest, Rules, Signup, Login } from "../pages";
+import { Home, Themes, Quest, Rules, Signup, Login, Result } from "../pages";
 
 function Endpoints() {
   return (
@@ -9,6 +9,7 @@ function Endpoints() {
       <Route path="/quest/:qid" element={<Quest />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/result" element={<Result />} />
       <Route path="/quest/:qid/rules" element={<Rules />} />
     </Routes>
   );

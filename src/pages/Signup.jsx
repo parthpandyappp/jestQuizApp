@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
 
 function Signup() {
@@ -7,15 +7,20 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  const { userSignup } = useAuth();
+  const { userSignup, setUserData } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="center-hv">
       <div className="auth-form">
-        <form onSubmit={(e) => userSignup(e, email, pass, name)}>
+        <form
+          onSubmit={(e) =>
+            userSignup(e, email, pass, name, setUserData, navigate)
+          }
+        >
           <h2>Sign up</h2>
           <div className="inp-unit">
-            <label for="fname">Name</label>
+            <label htmlFor="fname">Name</label>
             <input
               type="text"
               name="fname"
@@ -24,7 +29,7 @@ function Signup() {
             />
           </div>
           <div className="inp-unit">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -33,7 +38,7 @@ function Signup() {
             />
           </div>
           <div className="inp-unit">
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               name="email"
