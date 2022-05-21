@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
+import { notifyError, notifyUserCreation } from "../helper-functions";
 
 function Signup() {
   const [name, setName] = useState("");
@@ -15,7 +16,16 @@ function Signup() {
       <div className="auth-form">
         <form
           onSubmit={(e) =>
-            userSignup(e, email, pass, name, setUserData, navigate)
+            userSignup(
+              e,
+              email,
+              pass,
+              name,
+              setUserData,
+              navigate,
+              notifyUserCreation,
+              notifyError
+            )
           }
         >
           <h2>Sign up</h2>

@@ -1,5 +1,6 @@
 import { db } from "../backend";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { ResultCard } from "../components";
 import { useAuth, useQuestData } from "../contexts";
 import { updateDoc, doc, getDoc, arrayUnion } from "firebase/firestore";
@@ -51,6 +52,7 @@ function Result() {
 
   return (
     <div className="center-hv">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <h2 className="underline underline-wavy">{quest_title}</h2>
       <h3>Final Score: {latestScore} / 50</h3>
       {state.question_set.map((question, index) => (

@@ -1,8 +1,15 @@
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { notifyQuizStart } from "../helper-functions";
 
 function Rules() {
   const { qid } = useParams();
+  const navigate = useNavigate();
+
+  const initialHandler = () => {
+    navigate(`/quest/${qid}`);
+    notifyQuizStart();
+  };
   return (
     <div className="center-hv">
       <h2 className="underline underline-wavy">General Rules</h2>
@@ -23,9 +30,9 @@ function Rules() {
           </li>
         </ul>
       </div>
-      <Link to={`/quest/${qid}`}>
-        <button className="btn btn-primary">Start Quiz</button>
-      </Link>
+      <button className="btn btn-primary" onClick={initialHandler}>
+        Start Quiz
+      </button>
     </div>
   );
 }
