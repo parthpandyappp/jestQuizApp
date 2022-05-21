@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { notifyQuizStart } from "../helper-functions";
 
 function Rules() {
