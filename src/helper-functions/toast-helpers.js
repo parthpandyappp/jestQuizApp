@@ -105,7 +105,7 @@ const notifyError = (err) =>
             </span>
         ),
         {
-            style: toastStyle
+            style: errorStyle
         }
     );
 
