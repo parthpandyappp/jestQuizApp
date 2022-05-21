@@ -2,6 +2,7 @@ import { useState } from "react";
 import { quizData, categories } from "../models";
 import { QuizCard } from "../components/QuizCard";
 import { filterByCategory } from "../helper-functions";
+import { Toaster } from "react-hot-toast";
 
 function Themes() {
   const [category, setCategory] = useState();
@@ -9,6 +10,7 @@ function Themes() {
 
   return (
     <div className="center-hv">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <div className="categories">
         {categories.map((category) => (
           <p

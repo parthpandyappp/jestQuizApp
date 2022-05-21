@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth, useQuestData } from "../contexts";
+import { Toaster } from "react-hot-toast";
 
 function Home() {
   const { currentUser } = useAuth();
@@ -17,6 +18,7 @@ function Home() {
 
   return (
     <div className="container">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <div className="center-hv">
         <h1 className="main-head underline-wavy">jestQuiz</h1>
         <p className="main-desc">

@@ -8,7 +8,7 @@ import {
     signInWithEmailAndPassword
 } from "firebase/auth";
 
-const userSignup = async (e, email, pass, name, setUserData, navigate) => {
+const userSignup = async (e, email, pass, name, setUserData, navigate, notifySuccess, notifyError) => {
     try {
         e.preventDefault();
         const res = await createUserWithEmailAndPassword(auth, email, pass, name);
@@ -16,32 +16,35 @@ const userSignup = async (e, email, pass, name, setUserData, navigate) => {
             displayName: name,
         });
         setUserData(res.user)
+        notifySuccess();
         navigate("/themes")
     } catch (err) {
-        console.log(err);
+        notifyError(err);
     }
 };
 
-const userLogOut = async (navigate, setCurrentUser) => {
+const userLogOut = async (navigate, setCurrentUser, notifySuccess, notifyError) => {
 
     try {
         await signOut(auth)
         setCurrentUser(null)
+        notifySuccess();
         navigate("/")
     } catch (err) {
-        console.log(err)
+        notifyError(err)
     }
 
 }
 
-const userLogin = async (e, email, password, setCurrentUser, navigate) => {
+const userLogin = async (e, email, password, setCurrentUser, navigate, notifySuccess, notifyError) => {
     try {
         e.preventDefault();
         const res = await signInWithEmailAndPassword(auth, email, password)
         getUser(res.user.uid, setCurrentUser);
+        notifySuccess();
         navigate("/themes")
     } catch (error) {
-        console.log(error)
+        notifyError(error)
     }
 
 }

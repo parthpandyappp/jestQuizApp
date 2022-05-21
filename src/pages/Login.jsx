@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../contexts";
 import { Link, useNavigate } from "react-router-dom";
+import { notifyUserLogin, notifyError } from "../helper-functions";
+import { Toaster } from "react-hot-toast";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,10 +13,19 @@ function Login() {
 
   return (
     <div className="center-hv">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <div className="auth-form">
         <form
           onSubmit={(e) =>
-            userLogin(e, email, password, setCurrentUser, navigate)
+            userLogin(
+              e,
+              email,
+              password,
+              setCurrentUser,
+              navigate,
+              notifyUserLogin,
+              notifyError
+            )
           }
         >
           <h2>Login</h2>
@@ -54,7 +65,9 @@ function Login() {
                   "test123@gkool.com",
                   "test1234",
                   setCurrentUser,
-                  navigate
+                  navigate,
+                  notifyUserLogin,
+                  notifyError
                 )
               }
             >

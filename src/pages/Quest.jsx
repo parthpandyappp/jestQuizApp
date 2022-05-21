@@ -1,7 +1,13 @@
 import { quizData } from "../models";
+import { Toaster } from "react-hot-toast";
 import { useQuestData } from "../contexts";
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  notifyQuizSubmission,
+  notifyQuizQuit,
+  notifyNoNext,
+} from "../helper-functions";
 
 function Quest() {
   const { qid } = useParams();
@@ -33,7 +39,13 @@ function Quest() {
   const submitHandler = () => {
     dispatch({ type: "SET_RESULT", payload: state.option });
     responseValidation(state.option);
+    notifyQuizSubmission();
     navigate("/result");
+  };
+
+  const handleQuit = () => {
+    notifyQuizQuit();
+    navigate("/themes");
   };
 
   const responseValidation = (option) => {
@@ -70,6 +82,7 @@ function Quest() {
 
   return (
     <div className="center-hv">
+      <Toaster position="bottom-right" reverseOrder={false} />
       <div className="quest-container">
         <h2 className="underline underline-wavy">{title}</h2>
         <div className="quest-pills">
@@ -94,9 +107,10 @@ function Quest() {
         </div>
       </div>
       <div className="quest-btns">
-        <Link to="/themes">
-          <button className="btn btn-secondary">Quit</button>
-        </Link>
+        <button className="btn btn-secondary" onClick={handleQuit}>
+          Quit
+        </button>
+
         {index === 4 ? (
           <button className="btn btn-secondary" onClick={() => submitHandler()}>
             Submit
@@ -108,7 +122,9 @@ function Quest() {
                 Next
               </button>
             ) : (
-              <button className="btn btn-secondary">Next</button>
+              <button className="btn btn-secondary" onClick={notifyNoNext}>
+                Next
+              </button>
             )}
           </>
         )}

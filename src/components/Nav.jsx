@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts";
+import { notifyUserLogout, notifyError } from "../helper-functions";
 
 function Nav() {
   const { currentUser, userLogOut, setCurrentUser } = useAuth();
@@ -21,7 +22,14 @@ function Nav() {
             </Link>
             <p
               className="underline pointer"
-              onClick={() => userLogOut(navigate, setCurrentUser)}
+              onClick={() =>
+                userLogOut(
+                  navigate,
+                  setCurrentUser,
+                  notifyUserLogout,
+                  notifyError
+                )
+              }
             >
               Logout
             </p>
