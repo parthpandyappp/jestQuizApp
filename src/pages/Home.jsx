@@ -1,6 +1,20 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth, useQuestData } from "../contexts";
 
 function Home() {
+  const { currentUser } = useAuth();
+  const { dispatch } = useQuestData();
+
+  useEffect(() => {
+    dispatch({ type: "SET_OPTION", payload: "" });
+    dispatch({ type: "SET_QUEST", payload: {} });
+    dispatch({ type: "SET_RESULT", payload: [] });
+    dispatch({ type: "SET_QUEST_TITLE", payload: "" });
+    dispatch({ type: "SET_SCORE", payload: 0 });
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="container">
       <div className="center-hv">
@@ -11,10 +25,10 @@ function Home() {
         </p>
         <div className="main-opt">
           <button className="btn btn-primary">
-            <Link to="/themes">Explore Quizzes</Link>
+            <Link to={currentUser ? "/themes" : "/login"}>Explore Quizzes</Link>
           </button>
           <button className="btn btn-secondary">
-            <a href="https://github.com/parthpandyappp/jestQuiz/">GitHub</a>
+            <a href="https://github.com/parthpandyappp/jestQuizApp/">GitHub</a>
           </button>
         </div>
       </div>

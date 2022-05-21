@@ -30,6 +30,13 @@
   border-radius: 0.5rem;
   font-weight: bolder;
   border: none;
+  cursor: pointer;
+}
+
+.btn-active:active {
+  background: none;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .btn-primary {

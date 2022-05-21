@@ -5,6 +5,8 @@
 @import url("styles/themes.css");
 @import url("styles/footer.css");
 @import url("styles/quest.css");
+@import url("styles/login.css");
+@import url("styles/results.css");
 
 * {
   font-family: "Montserrat", sans-serif;
@@ -27,7 +29,7 @@ nav .nav-opts {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .underline {
@@ -46,6 +48,10 @@ a {
 .categories {
   display: flex;
   gap: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .category-badge {
